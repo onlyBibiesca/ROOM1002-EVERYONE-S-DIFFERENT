@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/McArthur.unity
     guid: 817e8b561b84e734cbf3ce21d8623297
+  - enabled: 1
+    path: Assets/Scenes/ShitPU.unity
+    guid: 7be577a46144e6d45931cb36d2b640f5
   - enabled: 0
     path: Assets/Scenes/Draft.unity
     guid: b98ce91687f506248b2b2f762fd0ac84

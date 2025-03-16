@@ -8,8 +8,9 @@ public class ChangeLocations : MonoBehaviour
 {
     //change locations
 
+    //old scripts
     //next location
-    public void NextLocation()
+    /*public void NextLocation()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -17,5 +18,26 @@ public class ChangeLocations : MonoBehaviour
     public void PreviousLocation()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }*/
+
+    //new scripts
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void District()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void McArthur()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void ShittyPU()
+    {
+        SceneManager.LoadScene(3);
     }
 }
