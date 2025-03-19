@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b05826330b6ec345acbd451b5a87b5b, type: 3}
+  m_Name: Angeline
+  m_EditorClassIdentifier: 
+  RootNode:
+    dialogueText: Hm?
+    responses:
+    - responseText: Continue
+      nextNode:
+        dialogueText: '"Oh hey!"'
+        responses:
+        - responseText: Continue
+          nextNode:
+            dialogueText: "*She rushes over to the player with a hot cup of coffee.
+              She trips and accidentally spills it all over the table, though thankfully
+              the player wasn\u2019t affected as he was able to quickly get up.* "
+            responses:
+            - responseText: Continue
+              nextNode:
+                dialogueText: "\u201CAgh\u2013 Sorry, sorry! Damn skates\u2026!\u201D "
+                responses:
+                - responseText: YOU MOTHERFUCKER
+                  nextNode:
+                    dialogueText: 
+                    responses: []
