@@ -13,23 +13,27 @@ MonoBehaviour:
   m_Name: Angeline
   m_EditorClassIdentifier: 
   RootNode:
-    dialogueText: Hm?
+    dialogueText: Hm? "Oh hey!"
     responses:
     - responseText: Continue
       nextNode:
-        dialogueText: '"Oh hey!"'
+        dialogueText: "*She rushes over to the player with a hot cup of coffee. She
+          trips and accidentally spills it all over the table, though thankfully
+          the player wasn\u2019t affected as he was able to quickly get up.*"
         responses:
         - responseText: Continue
           nextNode:
-            dialogueText: "*She rushes over to the player with a hot cup of coffee.
-              She trips and accidentally spills it all over the table, though thankfully
-              the player wasn\u2019t affected as he was able to quickly get up.* "
+            dialogueText: "\u201CAgh\u2013 Sorry, sorry! Damn heels\u2026!\u201D "
             responses:
-            - responseText: Continue
+            - responseText: Forgive
               nextNode:
-                dialogueText: "\u201CAgh\u2013 Sorry, sorry! Damn skates\u2026!\u201D "
+                dialogueText: " \u201CI\u2019m glad you\u2019re not hurt, <name>.
+                  Sorry for spilling your coffee, glad to see you\u2019re okay at
+                  least.\u201D She cleans up the mess with a sheepish smile, feeling
+                  bad for what happened but appreciative of the player\u2019s forgiveness
+                  and understanding. "
                 responses:
-                - responseText: YOU MOTHERFUCKER
+                - responseText: '*Smile*'
                   nextNode:
                     dialogueText: 
                     responses: []

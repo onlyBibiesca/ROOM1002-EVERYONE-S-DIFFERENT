@@ -14,6 +14,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject responseButtonPrefab; // Prefab for generating response buttons
     public Transform responseButtonContainer; // Container to hold response buttons
 
+    public GameObject playerUI; //element for PlayerUI
+
+
+
     private void Awake()
     {
         // Singleton pattern to ensure only one instance of DialogueManager
@@ -77,12 +81,14 @@ public class DialogueManager : MonoBehaviour
     public void HideDialogue()
     {
         DialogueParent.SetActive(false);
+        playerUI.SetActive(true);
     }
 
     // Show the dialogue UI
     private void ShowDialogue()
     {
         DialogueParent.SetActive(true);
+        playerUI.SetActive(false);
     }
 
     // Check if dialogue is currently active
@@ -90,4 +96,5 @@ public class DialogueManager : MonoBehaviour
     {
         return DialogueParent.activeSelf;
     }
+
 }

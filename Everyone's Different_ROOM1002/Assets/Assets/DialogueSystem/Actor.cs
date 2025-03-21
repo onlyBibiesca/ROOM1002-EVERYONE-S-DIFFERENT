@@ -7,7 +7,7 @@ public class Actor : MonoBehaviour
     public string Name;
     public Dialogue dialogue;
 
-    private void OnClick()
+    public void OnClick()
     {
         Debug.Log("Speaking to " + Name);
         SpeakTo();
