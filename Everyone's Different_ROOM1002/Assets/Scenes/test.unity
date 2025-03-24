@@ -1425,6 +1425,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6454269208639972663, guid: c0f77495002847a4abf3472875390943, type: 3}
+      propertyPath: database
+      value: 
+      objectReference: {fileID: 11400000, guid: 45faf65d264ef434f9f8a94167d77a82, type: 2}
+    - target: {fileID: 6454269208639972663, guid: c0f77495002847a4abf3472875390943, type: 3}
       propertyPath: DialogBodyText
       value: 
       objectReference: {fileID: 57909026}

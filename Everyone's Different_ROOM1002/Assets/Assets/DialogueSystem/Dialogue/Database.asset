@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Pseudo Dialogue
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueCollection
-  dialogues: []
+  m_Script: {fileID: 11500000, guid: afb2960fd0517d2499d7c9625f1fbf8f, type: 3}
+  m_Name: Database
+  m_EditorClassIdentifier: 
+  Database:
+  - {fileID: 11400000, guid: f90b7b281976def498d927f705e2d709, type: 2}

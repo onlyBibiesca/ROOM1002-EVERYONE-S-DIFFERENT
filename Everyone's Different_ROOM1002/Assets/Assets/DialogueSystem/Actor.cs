@@ -5,7 +5,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     public string Name;
-    public Dialogue dialogue;
+    public string collectionID;
 
     public void OnClick()
     {
@@ -15,6 +15,6 @@ public class Actor : MonoBehaviour
 
     public void SpeakTo()
     {
-        DialogueManager.Instance.StartDialogue(Name, dialogue.RootNode);
+        //DialogueManager.Instance.StartDialogue(Name, dialogue.RootNode);
     }
 }
