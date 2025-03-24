@@ -22,10 +22,17 @@ public class Items : MonoBehaviour
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
     }
 
-    public void ItemReceive()
+    //For receiving items only once, ie "Get item from corner, it dissapears and goes to your bag"
+    public void ItemReceiveSing()
     {
         inventoryManager.AddItem(itemName, quantity, sprite);
         Destroy(gameObject);
+    }
+
+    //For receiving items multiple times, ie "Buy item from store, limitless supply"
+    public void ItemReceiveMult()
+    {
+        inventoryManager.AddItem(itemName, quantity, sprite);
     }
 }
 /*[System.Serializable]

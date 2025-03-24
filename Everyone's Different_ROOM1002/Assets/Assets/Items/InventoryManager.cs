@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
 
     public static bool isInventoryClick = false;
 
+    public ItemDatabase[] itemData;
+
     public void OnInventoryBag()
     {
         Time.timeScale = 0;
@@ -28,6 +30,14 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(string itemName, int quantity, Sprite itemSprite)
     {
+        for (int i = 0; i < itemData.Length; i++)
+        {
+            if (itemData[i].isFull == false)
+            {
+                itemData[i].AddItem(itemName, quantity, itemSprite);
+                return;
+            }
+        }
         Debug.Log("Item Received" + itemName + " " + quantity + " " + itemSprite);
     }
 }
