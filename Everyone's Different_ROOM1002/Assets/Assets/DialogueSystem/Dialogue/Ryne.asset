@@ -12,5 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0128ee2ace56520478750883b561dfa9, type: 3}
   m_Name: Ryne
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCollection
-  dialogues: []
+  dialogues:
+  - id: Racist
+    dialogues:
+    - ni
+    choices:
+    - displayText: Bad resspone
+      targetId: bad response
+      choiceStats:
+        Happiness: 0
+        Sadness: 0
+        Grief: 0
+      itemId: 
+  - id: bad response
+    dialogues:
+    - ni
+    choices: []
   CollectionID: Ryne

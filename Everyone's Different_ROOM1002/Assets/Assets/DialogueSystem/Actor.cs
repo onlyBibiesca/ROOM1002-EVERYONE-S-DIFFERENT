@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +15,6 @@ public class Actor : MonoBehaviour
 
     public void SpeakTo()
     {
-        //DialogueManager.Instance.StartDialogue(Name, dialogue.RootNode);
+        DialogueSystem.Instance.StartDialogue(collectionID, Name);
     }
-}
+}*/
