@@ -1,8 +1,34 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
 
-[System.Serializable]
+
+
+public class Items : MonoBehaviour
+{
+
+    [SerializeField]
+    private string itemName;
+    [SerializeField]
+    private int quantity;
+    [SerializeField]
+    private Sprite sprite;
+
+    public InventoryManager inventoryManager;
+
+    void Start()
+    {
+        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+    }
+
+    public void ItemReceive()
+    {
+        inventoryManager.AddItem(itemName, quantity, sprite);
+        Destroy(gameObject);
+    }
+}
+/*[System.Serializable]
 public class Item
 {
     public string itemName;
@@ -24,3 +50,4 @@ public class Item
 
 
 }
+*/
