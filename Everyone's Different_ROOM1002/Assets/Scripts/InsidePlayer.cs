@@ -10,12 +10,14 @@ public class InsidePlayer : MonoBehaviour
     [SerializeField] public GameObject InsidePlace;
     [SerializeField] public GameObject outsideNPC;
     [SerializeField] public GameObject insideNPC;
+    [SerializeField] public GameObject locationArrows;
 
     public void OnClickEvent()
     {
         InsidePlace.SetActive(true);
         insideNPC.SetActive(true);
         outsideNPC.SetActive(false);
+        locationArrows.SetActive(false);
         isPlayerInside = true;
         Debug.Log("Player enters " +  InsidePlace);
     }
@@ -25,6 +27,7 @@ public class InsidePlayer : MonoBehaviour
         InsidePlace.SetActive(false);
         insideNPC.SetActive(false);
         outsideNPC.SetActive(true);
+        locationArrows.SetActive(true);
         isPlayerInside = false;
         Debug.Log("Player exits " + InsidePlace);
     }

@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 
 public class INKDialogueManager : MonoBehaviour
 {
+    [Header("Params")]
+    [SerializeField] private float typingSpeed = 0.04f;
+
     [Header("PlayerUI to Hide")]
     [SerializeField] public GameObject NPC;
     [SerializeField] public GameObject playerUI;
@@ -14,6 +17,7 @@ public class INKDialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI displayNameText;
     [SerializeField] public GameObject continueButton;
 
     [Header("Choices UI")]
@@ -24,7 +28,11 @@ public class INKDialogueManager : MonoBehaviour
 
     public bool isDialoguePlaying;
 
+    private Coroutine displayLineCoroutine;
+
     private static INKDialogueManager instance;
+
+    private const string SPEAKER_TAG = "speaker";
 
     private void Awake()
     {
@@ -87,13 +95,56 @@ public class INKDialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            if(displayLineCoroutine != null)
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
              DisplayChoices();
+
+            HandleTags(currentStory.currentTags);
         }
 
         else
         {
             ExitDialogueMode();
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        //empty the dialogue
+        dialogueText.text = "";
+
+        foreach (char letter in line.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+    }
+
+    private void HandleTags(List<string> currentTags)
+    {
+        foreach (string tag in currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+            if (splitTag.Length != 2)
+            {
+                Debug.LogError("Tag could not be parsed " + tag);
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
+
+            switch (tagKey)
+            {
+                case SPEAKER_TAG:
+                    displayNameText.text = tagValue;
+                    break;
+
+                default:
+                    Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
+                    break;
+            }
         }
     }
 
