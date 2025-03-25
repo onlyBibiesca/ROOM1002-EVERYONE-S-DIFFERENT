@@ -35,9 +35,19 @@ public class InventoryManager : MonoBehaviour
             if (itemData[i].isFull == false)
             {
                 itemData[i].AddItem(itemName, quantity, itemSprite);
+                Debug.Log("Item Received" + itemName + " " + quantity + " " + itemSprite);
                 return;
             }
         }
-        Debug.Log("Item Received" + itemName + " " + quantity + " " + itemSprite);
+  
+    }
+
+    public void DeselectAllSlots()
+    {
+        for (int i = 0; i < itemData.Length; i++)
+        {
+            itemData[i].selectedShader.SetActive(false);
+            itemData[i].thisItemSelected = false;
+        }
     }
 }
