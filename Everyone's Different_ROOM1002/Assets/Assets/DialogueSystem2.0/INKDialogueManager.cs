@@ -97,6 +97,7 @@ public class INKDialogueManager : MonoBehaviour
         }
     }
 
+    //displays the choices after no dialogues can be continued
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
@@ -128,6 +129,7 @@ public class INKDialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
 
+    //This gives the player choices
     public void MakeCHoice(int choiceIndex)
     {
         currentStory.ChooseChoiceIndex(choiceIndex);
