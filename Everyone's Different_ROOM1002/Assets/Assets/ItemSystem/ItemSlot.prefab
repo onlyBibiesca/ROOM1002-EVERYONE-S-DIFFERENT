@@ -380,7 +380,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: cc9d077da452efc4f9d2d3513b26ba70, type: 3}
   isFull: 0
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptySprite: {fileID: 21300000, guid: cc9d077da452efc4f9d2d3513b26ba70, type: 3}
   quantityText: {fileID: 8734609947533486133}
   itemImage: {fileID: 6718876101175625751}
   itemDescriptionImage: {fileID: 0}

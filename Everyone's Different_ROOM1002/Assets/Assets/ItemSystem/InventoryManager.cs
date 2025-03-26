@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -6,11 +5,21 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+
+
     public GameObject InventoryScreen;
     public static bool isInventoryClick = false;
     public ItemDatabase[] itemData;
 
     public ItemScriptObject[] ItemSO;
+
+    void Start()
+    {
+        foreach (var item in ItemSO)
+        {
+            Debug.Log("ItemSO contains: " + item.itemName);
+        }
+    }
 
     public void OnInventoryBag()
     {
@@ -30,11 +39,15 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem(string itemName)
     {
+        Debug.Log("Searching for item to use: " + itemName);
         for (int i = 0; i < ItemSO.Length; i++)
         {
+            Debug.Log("Checking item: " + ItemSO[i].itemName);
             if (ItemSO[i].itemName == itemName)
             {
+                Debug.Log("Using item: " + itemName);
                 ItemSO[i].UseItem();
+                break; // Stops after finding the first match
             }
         }
     }
@@ -50,7 +63,7 @@ public class InventoryManager : MonoBehaviour
                 return;
             }
         }
-  
+
     }
 
     public void DeselectAllSlots()

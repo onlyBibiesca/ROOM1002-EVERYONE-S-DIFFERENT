@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 
@@ -18,12 +17,16 @@ public class Items : MonoBehaviour
     [SerializeField]
     private string itemDescription;
 
+    [SerializeField] private InventoryManager inventoryManager;
+
+    /*
     public InventoryManager inventoryManager;
 
     void Start()
     {
         inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
     }
+   */
 
     //For receiving items only once, ie "Get item from corner, it dissapears and goes to your bag"
     public void ItemReceiveSing()

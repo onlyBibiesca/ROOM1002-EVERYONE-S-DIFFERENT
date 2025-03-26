@@ -15,7 +15,7 @@ public class ItemScriptObject : ScriptableObject
     {
         if (statToChange == StatToChange.health)
         {
-            //example codes if stats are scripted, highly recommended to follow naming scheme
+            //example codes if stats are scripted
             //GameObject.Find("HealthManager").GetComponent<Health>().ChangeHealth(amountChangeStat);
             Debug.Log("Health Added");
         }
@@ -24,6 +24,12 @@ public class ItemScriptObject : ScriptableObject
         {
             //GameObject.Find("HungerManager").GetComponent<Hunger>().ChangeHunger(amountChangeStat);
             Debug.Log("Hunger Added");
+        }
+
+        if (statToChange == StatToChange.stamina)
+        {
+            //GameObject.Find("StaminaManager").GetComponent<Stamina>().ChangeStamina(amountChangeStat);
+            Debug.Log("Stamina Added");
         }
     }
 

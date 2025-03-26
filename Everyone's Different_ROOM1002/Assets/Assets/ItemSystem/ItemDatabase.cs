@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Reflection;
+
 
 
 public class ItemDatabase : MonoBehaviour, IPointerClickHandler
@@ -16,7 +16,7 @@ public class ItemDatabase : MonoBehaviour, IPointerClickHandler
     public bool isFull;
     public string itemDescription;
     public Sprite emptySprite;
-    
+
     //Item Slot
     [SerializeField]
     private TMP_Text quantityText;
@@ -67,28 +67,63 @@ public class ItemDatabase : MonoBehaviour, IPointerClickHandler
 
     public void OnLeftClick()
     {
-        inventoryManager.DeselectAllSlots();
+       // inventoryManager.DeselectAllSlots();
         selectedShader.SetActive(true);
         thisItemSelected = true;
         itemDescriptionNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
-        itemDescriptionImage.sprite = itemSprite;   
+        itemDescriptionImage.sprite = itemSprite;
         if (itemDescriptionImage.sprite == null)
         {
             itemDescriptionImage.sprite = emptySprite;
         }
+        Debug.Log("Clicked on item: " + itemName);
     }
 
     public void OnRightClick()
     {
-     
+
     }
+    /*
+    public void UseButton()
+    {
+        Debug.Log("UseButton pressed for: " + itemName);
+        if (thisItemSelected == true)
+        {
+            inventoryManager.UseItem(itemName);
+            EmptySlot();
+        }
+    }
+    */
 
     public void UseButton()
     {
-        if (thisItemSelected)
+        // Ensure only the selected item is used
+        foreach (var item in inventoryManager.itemData)
         {
-            inventoryManager.UseItem(itemName);
+            if (item.thisItemSelected)
+            {
+                Debug.Log("Using item: " + item.itemName);
+                inventoryManager.UseItem(item.itemName);
+                item.EmptySlot(); // Remove item after use
+                return; // Exit after using the selected item
+            }
         }
+
+        Debug.LogWarning("No item selected!");
+    }
+    public void EmptySlot()
+    {
+        thisItemSelected = true;
+        quantityText.enabled = false;
+        itemImage.sprite = emptySprite;
+        itemDescription = "";
+        itemName = "";
+        itemSprite = emptySprite;
+        isFull = false;
+
+        itemDescriptionNameText.text = "";
+        itemDescriptionText.text = "";
+        itemDescriptionImage.sprite = emptySprite;
     }
 }
