@@ -28,13 +28,13 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Exit Inventory");
     }
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         for (int i = 0; i < itemData.Length; i++)
         {
             if (itemData[i].isFull == false)
             {
-                itemData[i].AddItem(itemName, quantity, itemSprite);
+                itemData[i].AddItem(itemName, quantity, itemSprite, itemDescription);
                 Debug.Log("Item Received" + itemName + " " + quantity + " " + itemSprite);
                 return;
             }

@@ -14,6 +14,9 @@ public class Items : MonoBehaviour
     private int quantity;
     [SerializeField]
     private Sprite sprite;
+    [TextArea]
+    [SerializeField]
+    private string itemDescription;
 
     public InventoryManager inventoryManager;
 
@@ -25,14 +28,14 @@ public class Items : MonoBehaviour
     //For receiving items only once, ie "Get item from corner, it dissapears and goes to your bag"
     public void ItemReceiveSing()
     {
-        inventoryManager.AddItem(itemName, quantity, sprite);
+        inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
         Destroy(gameObject);
     }
 
     //For receiving items multiple times, ie "Buy item from store, limitless supply"
     public void ItemReceiveMult()
     {
-        inventoryManager.AddItem(itemName, quantity, sprite);
+        inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
     }
 }
 /*[System.Serializable]
