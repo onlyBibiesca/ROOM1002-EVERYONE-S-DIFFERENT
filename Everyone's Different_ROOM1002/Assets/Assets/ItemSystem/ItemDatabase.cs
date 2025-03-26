@@ -83,4 +83,12 @@ public class ItemDatabase : MonoBehaviour, IPointerClickHandler
     {
      
     }
+
+    public void UseButton()
+    {
+        if (thisItemSelected)
+        {
+            inventoryManager.UseItem(itemName);
+        }
+    }
 }

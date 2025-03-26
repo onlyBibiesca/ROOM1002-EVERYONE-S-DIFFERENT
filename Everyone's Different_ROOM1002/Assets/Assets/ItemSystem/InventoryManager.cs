@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject InventoryScreen;
-
     public static bool isInventoryClick = false;
-
     public ItemDatabase[] itemData;
+
+    public ItemScriptObject[] ItemSO;
 
     public void OnInventoryBag()
     {
@@ -26,6 +26,17 @@ public class InventoryManager : MonoBehaviour
         InventoryScreen.SetActive(false);
         isInventoryClick = false;
         Debug.Log("Exit Inventory");
+    }
+
+    public void UseItem(string itemName)
+    {
+        for (int i = 0; i < ItemSO.Length; i++)
+        {
+            if (ItemSO[i].itemName == itemName)
+            {
+                ItemSO[i].UseItem();
+            }
+        }
     }
 
     public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
