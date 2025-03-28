@@ -4338,6 +4338,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8754462497522450394, guid: 8f2d45d46d525a94c8d4feab952186d3, type: 3}
+      propertyPath: isFull
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8754462497522450394, guid: 8f2d45d46d525a94c8d4feab952186d3, type: 3}
       propertyPath: itemDescriptionText
       value: 
       objectReference: {fileID: 837649022}
