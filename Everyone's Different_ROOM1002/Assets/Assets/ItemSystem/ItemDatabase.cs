@@ -7,6 +7,8 @@ using System.Reflection;
 
 
 
+
+
 public class ItemDatabase : MonoBehaviour, IPointerClickHandler
 {
     //Item Data
@@ -33,11 +35,14 @@ public class ItemDatabase : MonoBehaviour, IPointerClickHandler
     public bool thisItemSelected;
 
     private InventoryManager inventoryManager;
+   
+       void Start()
+       {
+           inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
+       }
+   
 
-    void Start()
-    {
-        inventoryManager = GameObject.Find("InventoryManager").GetComponent<InventoryManager>();
-    }
+
 
     public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
