@@ -10,14 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbeeb1323a42d5943899f1f907e90705, type: 3}
-  m_Name: NPC_Angeline
+  m_Name: Player Stats
   m_EditorClassIdentifier: 
-  traitID: Angeline
+  traitID: Player
   traits:
-  - id: Intro - Diner
+  - id: PlayerStats
     gStats:
       Sarcastic: 0
       Pessimistic: 0
       Athletic: 0
       Workaholic: 0
       PassiveAggressive: 0
+    playerstats:
+      health: 100
+      hunger: 100
+      socialBattery: 100
+      energyMeter: 100
+    RLevel:
+      Angeline: 0
+      David: 0
