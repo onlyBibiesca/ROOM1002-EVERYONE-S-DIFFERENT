@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: Player
   health: 50
-  hunger: 50
-  energy: 50
-  socialBattery: 50
+  hunger: 60
+  energy: 80
+  socialBattery: 40

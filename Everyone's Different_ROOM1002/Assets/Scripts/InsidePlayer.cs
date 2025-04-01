@@ -11,6 +11,7 @@ public class InsidePlayer : MonoBehaviour
     [SerializeField] public GameObject outsideNPC;
     [SerializeField] public GameObject insideNPC;
     [SerializeField] public GameObject locationArrows;
+    [SerializeField] public GameObject menuCarter;
 
 
     public void Start()
@@ -19,6 +20,7 @@ public class InsidePlayer : MonoBehaviour
         insideNPC.SetActive(false);
         outsideNPC.SetActive(true);
         locationArrows.SetActive(true);
+        menuCarter.SetActive(false);
         isPlayerInside = false;
     }
     public void OnClickEvent()
@@ -27,6 +29,7 @@ public class InsidePlayer : MonoBehaviour
         insideNPC.SetActive(true);
         outsideNPC.SetActive(false);
         locationArrows.SetActive(false);
+        menuCarter.SetActive(true);
         isPlayerInside = true;
         Debug.Log("Player enters " +  InsidePlace);
     }
@@ -37,6 +40,7 @@ public class InsidePlayer : MonoBehaviour
         insideNPC.SetActive(false);
         outsideNPC.SetActive(true);
         locationArrows.SetActive(true);
+        menuCarter.SetActive(false);
         isPlayerInside = false;
         Debug.Log("Player exits " + InsidePlace);
     }
