@@ -31,5 +31,30 @@ public class PlayerManager : MonoBehaviour
         //GameObject.GetComponent<ItemScriptObject>().MyFunction();
     }
 
+    public void ChangeHealth(int amount)
+    {
+        stats.health = Mathf.Clamp(stats.health + amount, 0, (int)healthSlider.maxValue);
+        healthSlider.value = (float)stats.health;
+    }
+
+    public void ChangeHunger(int amount)
+    {
+        stats.hunger = Mathf.Clamp(stats.hunger + amount, 0, (int)hungerSlider.maxValue);
+        hungerSlider.value = (float)stats.hunger;
+    }
+
+    public void ChangeEnergy(int amount)
+    {
+        stats.energy = Mathf.Clamp(stats.energy + amount, 0, (int)energySlider.maxValue);
+        energySlider.value = (float)stats.energy;
+    }
+
+    public void ChangeSocialBattery(int amount)
+    {
+        stats.socialBattery = Mathf.Clamp(stats.socialBattery + amount, 0, (int)socialbatSlider.maxValue);
+        socialbatSlider.value = (float)stats.socialBattery;
+    }
+
+
 
 }
