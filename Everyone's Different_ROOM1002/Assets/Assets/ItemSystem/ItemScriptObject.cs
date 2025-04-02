@@ -9,6 +9,7 @@ public class ItemScriptObject : ScriptableObject
 {
     [Header("Item")]
     public string itemName;
+    public List<StatToChange> statchange;
     public StatToChange statToChange = new StatToChange();
     public int amountChangeStat;
 

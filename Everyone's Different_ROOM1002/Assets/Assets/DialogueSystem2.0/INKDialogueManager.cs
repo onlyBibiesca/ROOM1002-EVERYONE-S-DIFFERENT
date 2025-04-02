@@ -11,8 +11,10 @@ public class INKDialogueManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.04f;
 
     [Header("PlayerUI to Hide")]
-    [SerializeField] public GameObject NPC;
+    [SerializeField] public GameObject NPC_1;
+    [SerializeField] public GameObject NPC_2;
     [SerializeField] public GameObject playerUI;
+    [SerializeField] public GameObject ExitButton;
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
@@ -76,8 +78,10 @@ public class INKDialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         isDialoguePlaying = true;
         dialoguePanel.SetActive(true);
-        NPC.SetActive(false);
+        NPC_1.SetActive(false);
+        NPC_2.SetActive(false);
         playerUI.SetActive(false);
+        ExitButton.SetActive(false);
 
         ContinueStory();
     }
@@ -86,8 +90,10 @@ public class INKDialogueManager : MonoBehaviour
     {
         isDialoguePlaying = false;
         dialoguePanel.SetActive(false);
-        NPC.SetActive(true);
+        NPC_1.SetActive(true);
+        NPC_2.SetActive(true);
         playerUI.SetActive(true);
+        ExitButton.SetActive(true);
         dialogueText.text = "";
     }
 
