@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Carter_Hotdog
   m_EditorClassIdentifier: 
   itemName: Hotdog
-  statchange: 
-  statToChange: 2
-  amountChangeStat: 0
-  playerStats: {fileID: 0}
+  statChanges:
+  - stat: 1
+    amount: 10
+  - stat: 2
+    amount: 20
+  playerStats: {fileID: 11400000, guid: b570436f1f9b28344bf53389b628dc67, type: 2}
