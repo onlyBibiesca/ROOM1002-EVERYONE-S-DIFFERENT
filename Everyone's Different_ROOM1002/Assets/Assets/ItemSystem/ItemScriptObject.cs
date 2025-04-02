@@ -20,7 +20,6 @@ public class ItemScriptObject : ScriptableObject
     [Header("PlayerStats")]
     public PlayerStats playerStats;
 
-    public List<ItemStats> itemstat;
 
     public void UseItem()
     {
