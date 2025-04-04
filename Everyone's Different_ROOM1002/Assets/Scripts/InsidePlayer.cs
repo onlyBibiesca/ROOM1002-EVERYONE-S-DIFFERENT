@@ -11,7 +11,7 @@ public class InsidePlayer : MonoBehaviour
     [SerializeField] public GameObject outsideNPC;
     [SerializeField] public GameObject insideNPC;
     [SerializeField] public GameObject locationArrows;
-    [SerializeField] public GameObject menuCarter;
+    //[SerializeField] public GameObject menuCarter;
 
 
     public void Start()
