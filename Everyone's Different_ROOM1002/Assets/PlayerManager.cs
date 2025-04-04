@@ -8,7 +8,8 @@ public class PlayerManager : MonoBehaviour
 {
     [Header("References")]
     public PlayerStats stats;
-    public Traits traitsList;
+    //public Traits traitsList;
+    public GameObject housePlayer;
 
     [Header("GameObjects")]
     public Slider healthSlider;

@@ -11,6 +11,9 @@ public class TimerScript: MonoBehaviour
 
     private const int totalSections = 5; // Total number of day sections (sunrise, morning, afternoon, evening, night)
 
+    [Header("End Screen")]
+    public GameObject endScreen;
+
     void Start()
     {
         // Initialize the arrow position on start
@@ -22,6 +25,15 @@ public class TimerScript: MonoBehaviour
     /// This method should be called when an action is performed.
     /// </summary>
     // <param name="points">The number of points the action takes</param>
+
+    private void Update()
+    {
+        if (timeSlider.value >= 0.93)
+        {
+            endScreen.SetActive(true);
+            Debug.Log("End day");
+        }
+    }
     public void AddPoints(int points)
     {
         // Accumulate points from the action
@@ -39,6 +51,7 @@ public class TimerScript: MonoBehaviour
 
         // Update the arrow slider position
         UpdateArrowPosition();
+
     }
 
     /// <summary>
@@ -82,5 +95,6 @@ public class TimerScript: MonoBehaviour
 
         // Update the slider value to move the arrow
         timeSlider.value = position;
+       
     }
 }

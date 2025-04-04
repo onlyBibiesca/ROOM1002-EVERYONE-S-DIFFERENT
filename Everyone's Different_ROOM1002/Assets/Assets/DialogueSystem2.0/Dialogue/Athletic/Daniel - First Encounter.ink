@@ -14,7 +14,9 @@ I'm begging you
             
     *[Aight Daniel]
             You're just here to piss me off huh.
-            Fuck off.
+            Piss off.
             ->DONE
+    *[Nah]
+        ...
     
 ->END
