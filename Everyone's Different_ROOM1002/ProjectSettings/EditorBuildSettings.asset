@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/House.unity
-    guid: c044e7a34c104164f833f4d46b7f42dc
-  - enabled: 1
     path: Assets/Scenes/District.unity
     guid: f9d8fba2823ae3e4ba1d8f615661c2e2
   - enabled: 1
@@ -20,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShitPU.unity
     guid: 7be577a46144e6d45931cb36d2b640f5
-  - enabled: 0
-    path: Assets/Scenes/Draft.unity
-    guid: b98ce91687f506248b2b2f762fd0ac84
   m_configObjects: {}

@@ -13,7 +13,7 @@ I'm begging you
             ->DONE
             
     *[Aight Daniel]
-            I would beat you up if you weren't bulky. I'm scared.
+            I was gonna shout at you but seeing you...take care
             ->DONE
     
 ->END
