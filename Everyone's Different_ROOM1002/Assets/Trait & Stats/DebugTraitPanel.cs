@@ -25,6 +25,7 @@ public class DebugTraitPanel : MonoBehaviour
                 selectedTrait = toggle.name; // Use the toggle's name as the trait
                 PlayerPrefs.SetString("SelectedTrait", selectedTrait);
                 Debug.Log(selectedTrait + "Go fuck yourself");
+                //tite
                 break;
             }
         }

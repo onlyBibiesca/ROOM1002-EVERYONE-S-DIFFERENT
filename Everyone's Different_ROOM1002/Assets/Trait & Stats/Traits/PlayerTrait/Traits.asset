@@ -19,3 +19,5 @@ MonoBehaviour:
     traits: 1
   - traitID: Player_Athetic
     traits: 2
+  - traitID: Player_Sarcastic
+    traits: 1
