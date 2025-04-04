@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class INKDialogueManager : MonoBehaviour
 {
     [Header("Params")]
-    [SerializeField] private float typingSpeed = 0.04f;
+    [SerializeField] private float typingSpeed = 0.02f;
 
     [Header("PlayerUI to Hide")]
     [SerializeField] public GameObject NPC_1;
@@ -75,7 +75,7 @@ public class INKDialogueManager : MonoBehaviour
         return instance;
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, bool isAthletic)
     {
         currentStory = new Story(inkJSON.text);
 
@@ -85,6 +85,16 @@ public class INKDialogueManager : MonoBehaviour
             currentStory.variablesState["playerTrait"] = playerTraits.playerTraits[0].traitID;
             Debug.Log("Player trait set to: " + playerTraits.playerTraits[0].traitID);
         }
+
+        //send those bools to ze ink
+        currentStory.variablesState["hasAthletic"] = isAthletic;
+
+        //TEST
+        //this is not logging when the bool is set to false, for some reason, which means this isn't running and is affecting everything else
+        //When testing, if the bool is set to true, it works when clicking the "Answer Phone" button.
+        //But, there's no log at all if the bool is set to false. Which means, this entire function is not... Functioning.
+        //After some testing in the ink file itself by setting [VAR hasAthletic = isAthletic], it still works with the true.
+        Debug.Log("isAthletic bool is currently set to... " + isAthletic + ".");
 
         isDialoguePlaying = true;
         dialoguePanel.SetActive(true);

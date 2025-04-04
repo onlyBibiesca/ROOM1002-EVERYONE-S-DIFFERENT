@@ -13,8 +13,8 @@ I'm begging you
             ->DONE
             
     *[Aight Daniel]
-            You're just here to piss me off huh.
-            Fuck off.
+            ...Dude.
+            Uncool.
             ->DONE
     
 ->END

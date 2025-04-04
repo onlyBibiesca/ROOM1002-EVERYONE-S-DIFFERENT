@@ -1685,6 +1685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: 202475e19bbbe124c9d15475e13f95d9, type: 3}
+  canActivateAthleticDialogue: 0
 --- !u!1 &212879717
 GameObject:
   m_ObjectHideFlags: 0
@@ -10933,6 +10934,7 @@ MonoBehaviour:
   energySlider: {fileID: 1574198784}
   hungerSlider: {fileID: 1070742035}
   socialbatSlider: {fileID: 168161966}
+  selectedTrait: 
 --- !u!1 &1324566421
 GameObject:
   m_ObjectHideFlags: 0
@@ -14397,7 +14399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1793969789
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,7 @@
+VAR hasAthletic = false
+
+#speaker: David
+
 -> main 
 
 ===main===
@@ -6,9 +10,16 @@
 
 “Listen, you might need to get to work quickly, it’s almost the work hour and I’m pretty confident I just woke you up.”
 
-“Anyway, I’ll see you at work. Get here quick, otherwise Jackson might yell at you for being late.
+“Anyway, I’ll see you at work. Get here quick, otherwise Jackson might yell at you for being late."
 
 //Special Dialogue
-"But you should able to catch up since you did track back in your hey days"
+{hasAthletic:
+	"But you should able to catch up since you did track back in your hey days. See you!"
+
+- else:
+	"See you, man!"
+
+}
+
 
 ->END
