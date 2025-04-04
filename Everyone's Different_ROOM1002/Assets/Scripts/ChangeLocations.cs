@@ -26,18 +26,23 @@ public class ChangeLocations : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void District()
+    public void House()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void McArthur()
+    public void District()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void ShittyPU()
+    public void McArthur()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void ShittyPU()
+    {
+        SceneManager.LoadScene(4);
     }
 }
