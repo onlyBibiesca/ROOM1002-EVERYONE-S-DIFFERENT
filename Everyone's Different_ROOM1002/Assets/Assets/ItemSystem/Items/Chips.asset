@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbeeb1323a42d5943899f1f907e90705, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: da5ae29cd10ccc344b6e9983be437d16, type: 3}
+  m_Name: Chips
   m_EditorClassIdentifier: 
-  playerID: Player
-  health: 70
-  hunger: 70
-  energy: 40
-  socialBattery: 40
+  itemName: Chips
+  statChanges:
+  - stat: 2
+    amount: 5
+  - stat: 1
+    amount: -40
+  playerStats: {fileID: 11400000, guid: b570436f1f9b28344bf53389b628dc67, type: 2}

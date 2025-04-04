@@ -26,7 +26,8 @@ public class ItemScriptObject : ScriptableObject
 
         PlayerManager playerManager = FindObjectOfType<PlayerManager>();
 
-        
+
+
         foreach (StatChange change in statChanges)
         {
 

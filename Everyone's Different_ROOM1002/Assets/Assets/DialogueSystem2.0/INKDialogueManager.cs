@@ -36,6 +36,8 @@ public class INKDialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
 
+    [SerializeField] private Traits playerTraits;
+
     private void Awake()
     {
         if (instance != null)
@@ -76,6 +78,14 @@ public class INKDialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
+
+        // Set player trait in the story (assuming the first trait as an example)
+        if (playerTraits != null && playerTraits.playerTraits.Count > 0)
+        {
+            currentStory.variablesState["playerTrait"] = playerTraits.playerTraits[0].traitID;
+            Debug.Log("Player trait set to: " + playerTraits.playerTraits[0].traitID);
+        }
+
         isDialoguePlaying = true;
         dialoguePanel.SetActive(true);
         NPC_1.SetActive(false);
@@ -85,7 +95,6 @@ public class INKDialogueManager : MonoBehaviour
 
         ContinueStory();
     }
-
     private void ExitDialogueMode()
     {
         isDialoguePlaying = false;
@@ -137,6 +146,7 @@ public class INKDialogueManager : MonoBehaviour
             if (splitTag.Length != 2)
             {
                 Debug.LogError("Tag could not be parsed " + tag);
+                continue;
             }
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
@@ -147,11 +157,30 @@ public class INKDialogueManager : MonoBehaviour
                     displayNameText.text = tagValue;
                     break;
 
+                case "trait":
+                    if (!PlayerHasTrait(tagValue))
+                    {
+                        Debug.LogWarning("Player does not have the required trait: " + tagValue);
+                    }
+                    break;
+
                 default:
-                    Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
+                    Debug.LogWarning("Unhandled tag: " + tag);
                     break;
             }
         }
+    }
+
+    private bool PlayerHasTrait(string trait)
+    {
+        foreach (TraitID playerTrait in playerTraits.playerTraits)
+        {
+            if (playerTrait.traitID.Equals(trait, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     //displays the choices after no dialogues can be continued
