@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class MenuScreen : MonoBehaviour
 {
     [Header("GameObjects")]
-    public GameObject CarterMenu;
+    public GameObject Menu;
     public GameObject playerUI;
+
+    [Header("NPC")]
     public GameObject npc;
 
 
@@ -17,20 +19,19 @@ public class MenuScreen : MonoBehaviour
     private void Start()
     {
         isActive = false;
-        CarterMenu.SetActive(false);
+        Menu.SetActive(false);
     }
 
     public void MenuFood()
     {
-       
-            CarterMenu.SetActive(true);
-            playerUI.SetActive(false);
-            npc.SetActive(false);
+        Menu.SetActive(true);
+        playerUI.SetActive(false);
+        npc.SetActive(false);
     }
 
     public void Exit()
     {
-        CarterMenu.SetActive(false);
+        Menu.SetActive(false);
         playerUI.SetActive(true);
         npc.SetActive(true);
     }

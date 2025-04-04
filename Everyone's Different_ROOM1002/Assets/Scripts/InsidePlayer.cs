@@ -7,38 +7,28 @@ public class InsidePlayer : MonoBehaviour
 {
     public static bool isPlayerInside  = false;
 
-    [SerializeField] public GameObject InsidePlace;
-    [SerializeField] public GameObject outsideNPC;
-    [SerializeField] public GameObject insideNPC;
-    [SerializeField] public GameObject locationArrows;
-    //[SerializeField] public GameObject menuCarter;
+    [Header("PlayerUI")]
+    public GameObject locationArrows;
 
+    [Header("Inside Objects")]
+    public GameObject insideObjects;
 
-    public void Start()
-    {
-        InsidePlace.SetActive(false);
-        insideNPC.SetActive(false);
-        outsideNPC.SetActive(true);
-        locationArrows.SetActive(true);
-        isPlayerInside = false;
-    }
-    public void OnClickEvent()
-    {
-        InsidePlace.SetActive(true);
-        insideNPC.SetActive(true);
-        outsideNPC.SetActive(false);
-        locationArrows.SetActive(false);
-        isPlayerInside = true;
-        Debug.Log("Player enters " +  InsidePlace);
+    [Header("Outside Objects")]
+    public GameObject outsideObjects;
+
+    public void EnterLocation()
+    { 
+            insideObjects.SetActive(true);
+            outsideObjects.SetActive(false);
+            locationArrows.SetActive(false);
+            Debug.Log("Going inside" + insideObjects);
     }
 
-    public void GoOutside()
+    public void ExitLocation()
     {
-        InsidePlace.SetActive(false);
-        insideNPC.SetActive(false);
-        outsideNPC.SetActive(true);
-        locationArrows.SetActive(true);
-        isPlayerInside = false;
-        Debug.Log("Player exits " + InsidePlace);
+            insideObjects.SetActive(false);
+            outsideObjects.SetActive(true);
+            locationArrows.SetActive(true);
+            Debug.Log("Going outside" + insideObjects);
     }
 }

@@ -11,8 +11,10 @@ public class INKDialogueManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.02f;
 
     [Header("PlayerUI to Hide")]
-    [SerializeField] public GameObject NPC_1;
-    [SerializeField] public GameObject NPC_2;
+    [SerializeField] public GameObject sarcasticAngeline;
+    [SerializeField] public GameObject athleticAngeline;
+    [SerializeField] public GameObject placeholderAngeline;
+
     [SerializeField] public GameObject playerUI;
     [SerializeField] public GameObject ExitButton;
 
@@ -20,6 +22,7 @@ public class INKDialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
+    [SerializeField] private Animator portraitAnimator;
     [SerializeField] public GameObject continueButton;
 
     [Header("Choices UI")]
@@ -35,6 +38,8 @@ public class INKDialogueManager : MonoBehaviour
     private static INKDialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
+    private const string PROTRAIT_TAG = "portrait";
+    private const string LAYOUT_TAG = "layout";
 
     [SerializeField] private Traits playerTraits;
 
@@ -75,7 +80,7 @@ public class INKDialogueManager : MonoBehaviour
         return instance;
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON, bool isAthletic)
+    public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
 
@@ -87,19 +92,27 @@ public class INKDialogueManager : MonoBehaviour
         }
 
         //send those bools to ze ink
-        currentStory.variablesState["hasAthletic"] = isAthletic;
+        /*if (isAthletic)
+        {
+            currentStory.variablesState["hasAthletic"] = isAthletic;
+        }
+
+        else
+        {
+            currentStory.variablesState["hasAthletic"] = !isAthletic;
+        }
 
         //TEST
         //this is not logging when the bool is set to false, for some reason, which means this isn't running and is affecting everything else
         //When testing, if the bool is set to true, it works when clicking the "Answer Phone" button.
         //But, there's no log at all if the bool is set to false. Which means, this entire function is not... Functioning.
         //After some testing in the ink file itself by setting [VAR hasAthletic = isAthletic], it still works with the true.
-        Debug.Log("isAthletic bool is currently set to... " + isAthletic + ".");
+        Debug.Log("isAthletic bool is currently set to... " + isAthletic + ".");*/
 
         isDialoguePlaying = true;
         dialoguePanel.SetActive(true);
-        NPC_1.SetActive(false);
-        NPC_2.SetActive(false);
+        //NPC_1.SetActive(false);
+        //NPC_2.SetActive(false);
         playerUI.SetActive(false);
         ExitButton.SetActive(false);
 
@@ -109,8 +122,8 @@ public class INKDialogueManager : MonoBehaviour
     {
         isDialoguePlaying = false;
         dialoguePanel.SetActive(false);
-        NPC_1.SetActive(true);
-        NPC_2.SetActive(true);
+        //NPC_1.SetActive(true);
+        //NPC_2.SetActive(true);
         playerUI.SetActive(true);
         ExitButton.SetActive(true);
         dialogueText.text = "";
@@ -127,6 +140,7 @@ public class INKDialogueManager : MonoBehaviour
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
              DisplayChoices();
 
+            //handletags
             HandleTags(currentStory.currentTags);
         }
 
@@ -167,11 +181,8 @@ public class INKDialogueManager : MonoBehaviour
                     displayNameText.text = tagValue;
                     break;
 
-                case "trait":
-                    if (!PlayerHasTrait(tagValue))
-                    {
-                        Debug.LogWarning("Player does not have the required trait: " + tagValue);
-                    }
+                case PROTRAIT_TAG:
+                    portraitAnimator.Play(tagValue);
                     break;
 
                 default:

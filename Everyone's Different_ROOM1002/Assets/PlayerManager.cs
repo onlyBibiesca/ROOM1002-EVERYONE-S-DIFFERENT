@@ -6,10 +6,18 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Header("References")]
+    [Header("Stats")]
     public PlayerStats stats;
-    //public Traits traitsList;
-    public GameObject housePlayer;
+
+    [Header("NPC Dialogues")]
+    public GameObject sarcasticAngeline;
+    public GameObject athleticAngeline2;
+
+    public GameObject sarcasticDavid;
+    public GameObject athleticDavid2;
+
+    public GameObject sarcasticDaniel;
+    public GameObject athleticDaniel;
 
     [Header("GameObjects")]
     public Slider healthSlider;
@@ -24,17 +32,19 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         isSlider = true;
+        RandomTrait();
         healthSlider.value = stats.health;
         hungerSlider.value = stats.hunger;
         energySlider.value = stats.energy;
         socialbatSlider.value = stats.socialBattery;
 
-        selectedTrait = PlayerPrefs.GetString("SelectedTrait", "None");
-        ApplyTrait(selectedTrait);
+        //selectedTrait = PlayerPrefs.GetString("SelectedTrait", "None");
+        //ApplyTrait(selectedTrait);
     }
     private void Update()
     {
         //GameObject.GetComponent<ItemScriptObject>().MyFunction();
+        
     }
 
     public void ChangeHealth(int amount)
@@ -60,7 +70,7 @@ public class PlayerManager : MonoBehaviour
         stats.socialBattery = Mathf.Clamp(stats.socialBattery + amount, 0, (int)socialbatSlider.maxValue);
         socialbatSlider.value = (float)stats.socialBattery;
     }
-    void ApplyTrait(string trait)
+    /*void ApplyTrait(string trait)
     {
         Debug.Log("Applying trait: " + trait);
 
@@ -82,7 +92,32 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("No trait or unknown trait applied.");
                 break;
         }
-    }
+    }*/
 
+    private void RandomTrait()
+    {
+        int randomNumber = Random.Range(0, 2);
+
+        if (randomNumber == 0) //sarcastic
+        {
+            Debug.Log("Trait is Sarcastic");
+            sarcasticAngeline.SetActive(true);
+            sarcasticDavid.SetActive(true);
+            sarcasticDaniel.SetActive(true);    
+
+
+        }
+
+        else if (randomNumber == 1) //athletic
+        {
+            Debug.Log("Trait is Athletic");
+            athleticAngeline2.SetActive(true);
+            athleticDavid2.SetActive(true);
+            athleticDaniel.SetActive(true);
+
+        }
+
+
+    }
 
 }

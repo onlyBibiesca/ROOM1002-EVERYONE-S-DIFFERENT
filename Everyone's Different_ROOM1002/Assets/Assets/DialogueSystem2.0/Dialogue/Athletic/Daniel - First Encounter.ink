@@ -13,10 +13,7 @@ I'm begging you
             ->DONE
             
     *[Aight Daniel]
-            You're just here to piss me off huh.
-            Piss off.
+            I would beat you up if you weren't bulky. I'm scared.
             ->DONE
-    *[Nah]
-        ...
     
 ->END

@@ -7,24 +7,36 @@ public class INKDialogueTrigger : MonoBehaviour
 {
     [Header("Ink JSON")]
     [SerializeField] public TextAsset inkJSON;
+    //[SerializeField] public TextAsset inkJSON_2;
 
-    [Header("isAthletic")]
-    [SerializeField] public bool canActivateAthleticDialogue = false;
+    //[Header("isAthletic")]
+    //[SerializeField] public static bool canActivateAthleticDialogue = false;
 
 
     public void OnClick()
     {
-        //this is to check if the bool is true or smth
-        if (!canActivateAthleticDialogue) return;
 
-        INKDialogueManager.GetInstance().EnterDialogueMode(inkJSON, canActivateAthleticDialogue);
-        Debug.Log("Pressed");
+        INKDialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        Debug.Log(inkJSON);
+        //this is to check if the bool is true or smth
+        // if (!canActivateAthleticDialogue) return;
+        /*f ()
+        {
+            INKDialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+            Debug.Log(inkJSON);
+        }
+
+        else
+        {
+            INKDialogueManager.GetInstance().EnterDialogueMode(inkJSON_2);
+            Debug.Log(inkJSON_2);
+        }*/
     }
 
-    public void setAthleticDialogueState(bool state)
+    /*public void setAthleticDialogueState(bool state)
     {
         canActivateAthleticDialogue=state;
-    }
+    }*/
 
    /*public void Update()
     {
