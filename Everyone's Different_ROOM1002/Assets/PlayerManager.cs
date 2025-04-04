@@ -19,6 +19,8 @@ public class PlayerManager : MonoBehaviour
 
     public static bool isSlider = false;
 
+    public string selectedTrait;
+
     void Start()
     {
         isSlider = true;
@@ -26,6 +28,9 @@ public class PlayerManager : MonoBehaviour
         hungerSlider.value = stats.hunger;
         energySlider.value = stats.energy;
         socialbatSlider.value = stats.socialBattery;
+
+        selectedTrait = PlayerPrefs.GetString("SelectedTrait", "None");
+        ApplyTrait(selectedTrait);
     }
     private void Update()
     {
@@ -55,7 +60,29 @@ public class PlayerManager : MonoBehaviour
         stats.socialBattery = Mathf.Clamp(stats.socialBattery + amount, 0, (int)socialbatSlider.maxValue);
         socialbatSlider.value = (float)stats.socialBattery;
     }
+    void ApplyTrait(string trait)
+    {
+        Debug.Log("Applying trait: " + trait);
 
+        switch (trait.ToLower())
+        {
+            case "sarcastic":
+                // Example logic for sarcastic trait
+                Debug.Log("This player responds to everything with sass.");
+                // You could trigger specific sarcastic dialogue patterns later
+                break;
+
+            case "athletic":
+                // Example logic for athletic trait
+                Debug.Log("This player runs faster or tires slower.");
+                // Could tie into movement speed, stamina drain, etc.
+                break;
+
+            default:
+                Debug.Log("No trait or unknown trait applied.");
+                break;
+        }
+    }
 
 
 }
